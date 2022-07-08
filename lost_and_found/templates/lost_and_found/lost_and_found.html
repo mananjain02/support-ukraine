@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Lost and Found
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'report_missing' %}">Report Missing</a>
+    <br>
+    {% for person in missing_person_list %}
+        <img src="{{ person.image.url }}">
+        <h5>{{ person.name }}</h5>
+        <p>Birth mark: {{ person.birth_mark }}</p>
+        <p>Seen last: {{ person.place_seen_last_time }}</p>
+    {% endfor %}
+{% endblock %}

@@ -1,5 +1,5 @@
 import django
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
 from django.urls import reverse
@@ -58,11 +58,12 @@ class ProfileView(View):
         if len(user_details) == 0:
             user_details = SosUser()
             context = {
-                "user": user_details
+                "sosuser": user_details
             }
         else:
+            print(user_details[0].name)
             context = {
-                "user": user_details
+                "sosuser": user_details[0]
             }
         return render(request, 'home/profile.html', context)
 
