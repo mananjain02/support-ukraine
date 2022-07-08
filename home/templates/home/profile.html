@@ -1,0 +1,27 @@
+{% extends 'support_ukraine/base.html' %}
+
+{% block page_title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    <h5>{{ erro_message }}</h5>
+    <form action="{% url 'profile' %}" method="POST">
+        {% csrf_token %}
+        <!-- <label>Name</label>
+        <input type="text" placeholder="name" name="name"> -->
+        <label>How do you identify yourself?</label>
+        <select name="role">
+            <option selected>individual</option>
+            <option >medical_unit</option>
+            <option >military_unit</option>
+        </select>
+        <button>
+            {% if user.verified %}
+                Update
+            {% else %}
+                Save
+            {% endif %}
+        </button>
+    </form>
+{% endblock %}

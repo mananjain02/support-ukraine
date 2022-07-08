@@ -1,0 +1,15 @@
+<form action="{% url 'soshome' %}" method="POST">
+    {% csrf_token %}
+    <label>Number of people</label>
+    <input type="number" placeholder="Number of people" name="number_of_people" required>
+    <label>Do you need medical assistance?</label>
+    <select name="medical_assistance" required>
+        <option selected>No</option>
+        <option>Yes</option>
+    </select>
+    <label>Any extra message</label>
+    <input type="text" placeholder="message" name="message">
+    <label>Google maps Location link</label>
+    <input type="text" placeholder="https://goo.gl/maps/gv5Vxm81GyDyg4Gd8" name="maps_location" required>
+    <button>SOS</button>
+</form>
