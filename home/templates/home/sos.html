@@ -1,7 +1,12 @@
-{% extends 'support_ukraine/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block page_title %}
     SOS
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'home/sos.css' %}">
 {% endblock %}
 
 {% block content %}

@@ -153,3 +153,7 @@ SOCIALACCOUNT_PROVIDERS = {
         },
     }
 }
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

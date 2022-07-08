@@ -37,17 +37,16 @@ class SosView(View):
         sos_message.save()
 
         if sos_message.medical_assistance == True:
-            print("medical needed")
             medical_sos_message = MedicalSos()
             medical_sos_message.sos_message = sos_message
             medical_sos_message.save()
-            print(len(MedicalSos.objects.all()))
-        else:
-            print('only military needed')
             military_sos_message = MilitarySos()
             military_sos_message.sos_message = sos_message
             military_sos_message.save()
-            print(len(MilitarySos.objects.all()))
+        else:
+            military_sos_message = MilitarySos()
+            military_sos_message.sos_message = sos_message
+            military_sos_message.save()
 
         return HttpResponseRedirect(reverse('soshome'))
 
