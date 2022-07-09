@@ -10,15 +10,23 @@
     <link rel="stylesheet"  href="{% static 'includes/header.css' %}">
 </head>
 <body>
-    <nav>
-        <h1>SOS Ukraine</h1>
-        <a href="{% url 'soshome' %}">Home</a>
-        <a href="{% url 'lost_and_found' %}">Lost and Found</a>
-        {% if user.is_authenticated %}
-            <a href="{% url 'account_logout' %}">LogOut</a>
-        {% endif %}
-        <p>Hello, <a href="{% url 'profile' %}">{{ user.username }}</a></p>
-        <hr>
-    </nav>
+    <div class="header-out">
+            <span class="header-in-left">
+               LOGO
+            </span>
+            <span class="header-in-mid">
+                <h1>SOS Ukraine</h1>
+            </span>
+            <span class="header-in-right">
+                <span><a href="{% url 'soshome' %}">Home</a></span>
+                <span><a href="{% url 'lost_and_found' %}">Lost and Found</a></span>
+                <span><a href="{% url 'profile' %}">My Profile</a></span>
+                <span>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'account_logout' %}">LogOut</a>
+                    {% endif %}
+                </span>
+            </span>
+    </div>
 </body>
 </html>
