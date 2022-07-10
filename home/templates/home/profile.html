@@ -12,28 +12,30 @@
     {% include 'includes/header.html' %}
     <div class="prof-outer">
         <h5>{{ erro_message }}</h5>
-        <form action="{% url 'profile' %}" method="POST">
-            {% csrf_token %}
-            <div class="lab">
-                <label>How do you identify yourself?</label>
-            </div>
-            <div class="role">
-                <select>
-                    <option selected>individual</option>
-                    <option >medical_unit</option>
-                    <option >military_unit</option>
-                </select>
-            </div>
-            <div class="button-prof">
-                <button>
-                {% if sosuser.verified %}
-                    Update
-                {% else %}
-                    Save
-                {% endif %}
-                </button>
-            </div>
-        </form>
+        <div class="prof-mid">
+            <form action="{% url 'profile' %}" method="POST">
+                {% csrf_token %}
+                <div class="lab">
+                    <label>How do you identify yourself?</label>
+                </div>
+                <div class="role">
+                    <select>
+                        <option selected>individual</option>
+                        <option >medical_unit</option>
+                        <option >military_unit</option>
+                    </select>
+                </div>
+                <div class="button-prof">
+                    <button>
+                    {% if sosuser.verified %}
+                        Update
+                    {% else %}
+                        Save
+                    {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
