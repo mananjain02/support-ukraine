@@ -160,3 +160,5 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT =  BASE_DIR / "uploads"
 MEDIA_URL = "/user-media/"
+
+SOCIALACCOUNT_LOGIN_ON_GET=True
