@@ -16,22 +16,18 @@
             <form action="{% url 'profile' %}" method="POST">
                 {% csrf_token %}
                 <div class="lab">
-                    <label>How do you identify yourself?</label>
+                    <label> &#129466 How do you identify yourself?</label>
                 </div>
-                <div class="role">
-                    <select>
+                <div class="roling">
+                    <select name="role">
                         <option selected>individual</option>
                         <option >medical_unit</option>
                         <option >military_unit</option>
                     </select>
                 </div>
-                <div class="button-prof">
+                <div class="prof-button">
                     <button>
-                    {% if sosuser.verified %}
-                        Update
-                    {% else %}
-                        Save
-                    {% endif %}
+                        SAVE &#10150
                     </button>
                 </div>
             </form>
