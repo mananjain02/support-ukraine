@@ -23,7 +23,11 @@
                 <span><a href="{% url 'profile' %}">My Profile</a></span>
                 <span>
                     {% if user.is_authenticated %}
-                        <a href="{% url 'account_logout' %}">LogOut</a>
+                        <form action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <button>Logout</button>
+                        </form>
+                        <!-- <a href="{% url 'account_logout' %}">LogOut</a> -->
                     {% endif %}
                 </span>
             </span>

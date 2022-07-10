@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from django.urls import reverse
 from .models import SosMessage, SosUser, MedicalSos, MilitarySos
+from django.contrib.auth import logout
 
 
 class SosView(View):
@@ -84,6 +85,9 @@ class ProfileView(View):
             user_to_add.save()
             return HttpResponseRedirect(reverse('soshome'))
 
+def LogOut(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('soshome'))
 
 class PeopleRescuedView(View):
     def post(self, request):
