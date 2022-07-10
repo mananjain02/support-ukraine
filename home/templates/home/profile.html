@@ -10,24 +10,30 @@
 </head>
 <body>
     {% include 'includes/header.html' %}
-    <h5>{{ erro_message }}</h5>
-    <form action="{% url 'profile' %}" method="POST">
-        {% csrf_token %}
-        <!-- <label>Name</label>
-        <input type="text" placeholder="name" name="name"> -->
-        <label>How do you identify yourself?</label>
-        <select name="role">
-            <option selected>individual</option>
-            <option >medical_unit</option>
-            <option >military_unit</option>
-        </select>
-        <button>
-            {% if sosuser.verified %}
-                Update
-            {% else %}
-                Save
-            {% endif %}
-        </button>
-    </form>
+    <div class="prof-outer">
+        <h5>{{ erro_message }}</h5>
+        <form action="{% url 'profile' %}" method="POST">
+            {% csrf_token %}
+            <div class="lab">
+                <label>How do you identify yourself?</label>
+            </div>
+            <div class="role">
+                <select>
+                    <option selected>individual</option>
+                    <option >medical_unit</option>
+                    <option >military_unit</option>
+                </select>
+            </div>
+            <div class="button-prof">
+                <button>
+                {% if sosuser.verified %}
+                    Update
+                {% else %}
+                    Save
+                {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
