@@ -52,7 +52,7 @@ option{
     margin-left: 30%;
     margin-right: 30%;
 }
-button{
+.sos-form-button{
     border-radius: 0.5rem;
     font-size: large;
     text-align: center;

@@ -1,0 +1,29 @@
+.lost-outer{
+    background-color: rgb(245,245,255);
+    border: 0.2rem solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lost-main{
+    border: 0.2rem solid black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.lost-inside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: #3385ff;
+    width: 15rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    margin-bottom: 1rem;
+}
