@@ -2,8 +2,9 @@ from PIL import Image
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
+from requests import request
 from .models import MissingPerson
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse
 
 # Create your views here.
@@ -24,3 +25,4 @@ class ReportMissingView(CreateView):
     template_name = 'lost_and_found/report_missing.html'
     success_url = '/lost-and-found/'
     fields = "__all__"
+    
