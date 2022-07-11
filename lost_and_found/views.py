@@ -20,9 +20,19 @@ class LostAndFoundView(View):
         pass
 
 
-class ReportMissingView(CreateView):
-    model = MissingPerson
-    template_name = 'lost_and_found/report_missing.html'
-    success_url = '/lost-and-found/'
-    fields = "__all__"
+class ReportMissingView(View):
+    def get(self, request):
+        return render(request, 'lost_and_found/report_missing.html')
+
+    def post(self, request):
+        missing_person = MissingPerson()
+        missing_person.name = request.POST['name']
+        missing_person.date_of_birth = request.POST['date_of_birth']
+        missing_person.date_missing = request.POST['date_missing']
+        missing_person.image = request.FILES['image']
+        missing_person.birth_mark = request.POST['birth_mark']
+        missing_person.place_seen_last_time = request.POST['place_seen_last_time']
+        missing_person.save()
+        return HttpResponseRedirect(reverse('lost_and_found'))
+
     
