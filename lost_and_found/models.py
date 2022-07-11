@@ -15,9 +15,7 @@ class MissingPerson(models.Model):
         super().save()
 
         img = Image.open(self.image.path)
-
-        if img.height > 200 or img.width > 200:
-            new_img = (200, 200)
-            img.thumbnail(new_img)
-            img.save(self.image.path)
+        new_img = (200, 200)
+        img.thumbnail(new_img)
+        img.save(self.image.path)
         return
