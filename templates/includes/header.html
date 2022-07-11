@@ -18,24 +18,18 @@
                 <h1>SOS Ukraine</h1>
             </span>
             <span class="header-in-right">
-                <span><a href="{% url 'soshome' %}">Home</a></span>
-                <span>
-                    {% if user.is_authenticated %}    
-                        <a href="{% url 'lost_and_found' %}">Lost and Found</a></span>
-                    {% endif %}
-                <span>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'profile' %}">My Profile</a></span>
-                    {% endif %}
-                <span>
-                    {% if user.is_authenticated %}
-                        <form action="{% url 'logout' %}" method="POST">
-                            {% csrf_token %}
-                            <button>Logout</button>
-                        </form>
-                        <!-- <a href="{% url 'account_logout' %}">LogOut</a> -->
-                    {% endif %}
-                </span>
+                {% if user.is_authenticated %} 
+                    <span><a href="{% url 'soshome' %}">Home</a></span>
+                    <span><a href="{% url 'lost_and_found' %}">Lost and Found</a></span>
+                    <span><a href="{% url 'profile' %}">My Profile</a></span>
+                    <span>
+                            <form action="{% url 'logout' %}" method="POST">
+                                {% csrf_token %}
+                                <button>Logout</button>
+                            </form>
+                            <!-- <a href="{% url 'account_logout' %}">LogOut</a> -->
+                    </span>
+                {% endif %}
             </span>
     </div>
 </body>
