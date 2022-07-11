@@ -7,5 +7,7 @@ urlpatterns = [
     path('profile', views.ProfileView.as_view(), name='profile'),
     path('rescued', views.PeopleRescuedView.as_view(), name='rescued'),
     path('accounts/', include('allauth.urls')),
-    path('lost-and-found/', include('lost_and_found.urls'))
+    path('lost-and-found/', include('lost_and_found.urls')),
+    path('logout', views.LogOut, name='logout'),
+    # path('login', views.LogIn, name='login')
 ]
