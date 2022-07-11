@@ -35,3 +35,11 @@
 .header-in-left{
     width: 6%;
 }
+.head-button{
+    border-radius: 0.5rem;
+    font-size: large;
+    text-align: center;
+    padding: 0.7rem;
+    background-color: #df2b1b;
+    border: none;
+}
