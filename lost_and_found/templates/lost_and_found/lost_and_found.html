@@ -1,16 +1,30 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{% block page_title %}
-    Lost and Found
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'lost_and_found/lost_and_found.css' %}">
+</head>
+<body>
+    {% include 'includes/header.html' %}
+    <div class="lost-outer">
+        {% block content %}
+        <a href="{% url 'report_missing' %}">Report Missing</a>
+        <div class="lost-main">
+            {% for person in missing_person_list %}
+            <div class="lost-inside">
+                <img src="{{ person.image.url }}">
+                <h3>{{ person.name }}</h3>
+                <p>Birth mark: {{ person.birth_mark }}</p>
+                <p>Seen last: {{ person.place_seen_last_time }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </div>
+</body>
+</html>
 
-{% block content %}
-    <a href="{% url 'report_missing' %}">Report Missing</a>
-    <br>
-    {% for person in missing_person_list %}
-        <img src="{{ person.image.url }}">
-        <h5>{{ person.name }}</h5>
-        <p>Birth mark: {{ person.birth_mark }}</p>
-        <p>Seen last: {{ person.place_seen_last_time }}</p>
-    {% endfor %}
-{% endblock %}
