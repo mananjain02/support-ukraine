@@ -47,7 +47,7 @@ class ReportMissingView(View):
         missing_person.date_of_birth = request.POST['date_of_birth']
         missing_person.date_missing = request.POST['date_missing']
         missing_person.image = request.FILES['image']
-        if request.POST['birht_mark'] is None:
+        if len(request.POST['birth_mark'])==0:
             missing_person.birth_mark = "None"
         else:
             missing_person.birth_mark = request.POST['birth_mark']

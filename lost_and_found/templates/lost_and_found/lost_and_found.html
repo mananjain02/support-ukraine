@@ -6,21 +6,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'lost_and_found/lost_and_found.css' %}">
 </head>
 <body>
     {% include 'includes/header.html' %}
-    <form action="{% url 'lost_and_found' %}" method="POST">
-        {% csrf_token %}
-        <label>Date of Birth</label>
-        <input type="date" placeholder="date of birth" name="date_of_birth">
-        <label>Name</label>
-        <input type="text" placeholder="name" name="name">
-        <button>Filter</button>
-    </form>
     <div class="lost-outer">
-        {% block content %}
-        <a href="{% url 'report_missing' %}">Report Missing</a>
+        <div class="lost-header">
+            <form action="{% url 'lost_and_found' %}" method="POST" class="lostform">
+                {% csrf_token %}
+                <label>Name:</label>
+                <input type="text" placeholder="Enter Name" name="name">
+                <label>Date of Birth:</label>
+                <input type="date" placeholder="date of birth" name="date_of_birth">
+                <button class="lostform-button">Filter <i class="fa fa-filter"></i></button>
+            </form>
+            <a href="{% url 'report_missing' %}">Report Missing</a>
+        </div>
         <div class="lost-main">
             {% for person in missing_person_list %}
             <div class="lost-inside">
@@ -33,7 +35,6 @@
             </div>
             {% endfor %}
         </div>
-        {% endblock %}
     </div>
     {% include 'includes/footer.html' %}
 </body>

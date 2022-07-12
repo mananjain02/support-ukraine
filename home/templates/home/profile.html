@@ -14,7 +14,7 @@
     <div class="prof-outer">
         <h5>{{ erro_message }}</h5>
         <div class="prof-mid">
-            <form action="{% url 'profile' %}" method="POST">
+            <form action="{% url 'profile' %}" method="POST" class="prof-form">
                 {% csrf_token %}
                 <div class="lab">
                     <label> &#129466 How do you identify yourself?</label>

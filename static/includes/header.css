@@ -5,7 +5,7 @@
     flex-direction: row;
     align-items: center;
     justify-items: center;
-    width: 100%;
+    /* width: 100%; */
 }
 .header-out span{
     margin-left: 1rem;
@@ -29,8 +29,11 @@
     padding: 0.7rem;
 }
 .header-in-right a{
-    color: black;
+    color: gray;
     text-decoration: none;
+}
+.header-in-right a:hover{
+    color: black;
 }
 .header-in-left{
     width: 6%;

@@ -3,10 +3,12 @@
     /* border: 0.2rem solid black; */
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .lost-outer a{
+    display: flex;
+    align-items: center;
     border-radius: 0.5rem;
     font-size: large;
     text-align: center;
@@ -15,7 +17,7 @@
     border: none;
     text-decoration: none;
     color: black;
-    width: 10%;
+    margin: 1rem 1rem 1rem 0rem;
 }
 .lost-main{
     /* border: 0.2rem solid black; */
@@ -27,6 +29,7 @@
     margin: 1rem;
 }
 .lost-inside{
+    /* border: 0.2rem solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,4 +54,44 @@
     margin: 0.5rem;
     font-size: large;
     color: white;
+}
+.lost-header{
+    /* border: 0.2rem solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0rem 1rem 0rem 1rem;
+    background-color: #3385ff;
+    border-radius: 0.5rem;
+}
+.lostform{
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: #3385ff;
+    width: 36rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+::placeholder{
+    color: #595959;
+}
+input
+{
+    border-radius: 0.2rem;
+    border: none;
+    padding: 0.2rem;
+    margin: 0rem 0.5rem 0rem 0.5rem;
+    background-color: whitesmoke;
+}
+.lostform-button{
+    border-radius: 0.5rem;
+    font-size: large;
+    text-align: center;
+    padding: 0.4rem;
+    background-color: #00ab66;
+    border: none;
+    margin-left: 1rem;
 }

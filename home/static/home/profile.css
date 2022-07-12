@@ -28,7 +28,7 @@
     transition: 0.5s;
     box-shadow: 0px 0px 30px #91a4e4;
 }
-form{
+.prof-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
