@@ -63,7 +63,6 @@ class ProfileView(View):
                 "sosuser": user_details
             }
         else:
-            print(user_details[0].name)
             context = {
                 "sosuser": user_details[0]
             }

@@ -17,8 +17,25 @@ class LostAndFoundView(View):
         return render(request, 'lost_and_found/lost_and_found.html', context)
 
     def post(self, request):
-        pass
-
+        context = {}
+        if len(request.POST['date_of_birth'])==0 and len(request.POST['name'])==0:
+            return HttpResponseRedirect(reverse('lost_and_found'))
+        elif len(request.POST['date_of_birth'])==0 and len(request.POST['name'])!=0:
+            missing_person_list = MissingPerson.objects.filter(name__icontains=request.POST['name'].lower())
+            context = {
+                'missing_person_list': missing_person_list
+            }
+        elif len(request.POST['date_of_birth'])!=0 and len(request.POST['name'])==0:
+            missing_person_list = MissingPerson.objects.filter(date_of_birth=request.POST['date_of_birth'])
+            context = {
+                'missing_person_list': missing_person_list
+            }
+        else:
+            missing_person_list = MissingPerson.objects.filter(date_of_birth=request.POST['date_of_birth'] ,name__icontains=request.POST['name'].lower())
+            context = {
+                'missing_person_list': missing_person_list
+            }
+        return render(request, 'lost_and_found/lost_and_found.html', context)
 
 class ReportMissingView(View):
     def get(self, request):
@@ -26,11 +43,14 @@ class ReportMissingView(View):
 
     def post(self, request):
         missing_person = MissingPerson()
-        missing_person.name = request.POST['name']
+        missing_person.name = request.POST['name'].lower()
         missing_person.date_of_birth = request.POST['date_of_birth']
         missing_person.date_missing = request.POST['date_missing']
         missing_person.image = request.FILES['image']
-        missing_person.birth_mark = request.POST['birth_mark']
+        if request.POST['birht_mark'] is None:
+            missing_person.birth_mark = "None"
+        else:
+            missing_person.birth_mark = request.POST['birth_mark']
         missing_person.place_seen_last_time = request.POST['place_seen_last_time']
         missing_person.save()
         return HttpResponseRedirect(reverse('lost_and_found'))

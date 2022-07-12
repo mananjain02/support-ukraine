@@ -16,7 +16,7 @@
                 {% csrf_token %}
                 <div class="nopeople">
                     <label> &#128101 Number of people:</label>
-                    <input type="number" placeholder="Number of people" name="number_of_people" required>
+                    <input type="number" placeholder="Number of people" name="number_of_people" min="1" value="1" required>
                 </div>
                 <div class="assistance">
                     <label> &#127973 Do you need medical assistance?</label>
