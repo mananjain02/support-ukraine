@@ -54,16 +54,20 @@ class SosView(View):
 
 class ProfileView(View):
     def get(self, request):
+        categories = ['individual', 'military_unit', 'medical_unit']
         user_details = SosUser.objects.filter(user=request.user)
         context = {}
         if len(user_details) == 0:
             user_details = SosUser()
             context = {
-                "sosuser": user_details
+                'sosuser': user_details,
+                'categories': categories,
             }
         else:
             context = {
-                "sosuser": user_details[0]
+                'sosuser': user_details[0],
+                'categories': categories,
+                'role': user_details[0].role
             }
         return render(request, 'home/profile.html', context)
 

@@ -12,7 +12,7 @@
 <body>
     {% include 'includes/header.html' %}
     <div class="prof-outer">
-        <h5>{{ erro_message }}</h5>
+        <h5>{{ error_message }}</h5>
         <div class="prof-mid">
             <form action="{% url 'profile' %}" method="POST" class="prof-form">
                 {% csrf_token %}
@@ -21,9 +21,13 @@
                 </div>
                 <div class="roling">
                     <select name="role">
-                        <option selected>individual</option>
-                        <option >medical_unit</option>
-                        <option >military_unit</option>
+                        {% for category in categories %}
+                            {% if category == role %}
+                                <option selected>{{ category }}</option>
+                            {% else %}
+                                <option>{{ category }}</option>
+                            {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
                 <div>
