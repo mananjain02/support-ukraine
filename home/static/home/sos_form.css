@@ -12,7 +12,7 @@
     width: 20rem;
     padding: 1rem;
     margin: 1rem;
-    margin-bottom: 20rem;
+    margin-bottom: 8.5rem;
 }
 form{
     display: flex;
@@ -49,8 +49,9 @@ option{
 }
 .button{
     margin-top: 0.5rem;
-    margin-left: 30%;
-    margin-right: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sos-form-button{
     border-radius: 0.5rem;

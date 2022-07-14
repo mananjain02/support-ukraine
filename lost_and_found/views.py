@@ -6,13 +6,16 @@ from requests import request
 from .models import MissingPerson
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse
+from home.models import SosUser
 
 # Create your views here.
 class LostAndFoundView(View):
     def get(self, request):
         missing_person_list = MissingPerson.objects.all()
+        user = SosUser.objects.get(user=request.user)
         context = {
-            'missing_person_list': missing_person_list
+            'missing_person_list': missing_person_list,
+            'role': user.role
         }
         return render(request, 'lost_and_found/lost_and_found.html', context)
 
@@ -55,4 +58,8 @@ class ReportMissingView(View):
         missing_person.save()
         return HttpResponseRedirect(reverse('lost_and_found'))
 
-    
+class MissingPersonFound(View):
+    def post(self, request):
+        person_found = MissingPerson.objects.get(id=request.POST['person_id'])
+        person_found.delete()
+        return HttpResponseRedirect(reverse('lost_and_found'))

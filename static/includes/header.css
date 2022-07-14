@@ -27,6 +27,7 @@
     margin-right: 1rem;
     border-radius: 0.2rem;
     padding: 0.7rem;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .header-in-right a{
     color: gray;
