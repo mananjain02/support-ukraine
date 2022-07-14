@@ -36,7 +36,7 @@
                         <form action="{% url 'missing_person_found' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" value="{{ person.id }}" name="person_id">
-                            <button id="lost-and-found-found-button">Found</button>
+                            <button id="lost-and-found-found-button">Found &#10004</button>
                         </form>
                     {% endif %}
                 </div>
