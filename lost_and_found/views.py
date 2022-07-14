@@ -1,8 +1,6 @@
-from PIL import Image
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
-from requests import request
 from .models import MissingPerson
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse
