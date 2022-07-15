@@ -9,7 +9,6 @@ from django.contrib.auth import logout
 class SosView(View):
     def get(self, request):
         if request.user.is_authenticated is False:
-            # return HttpResponseRedirect(reverse('account_login'))
             return render(request, 'index.html')
         user_to_find = SosUser.objects.filter(user=request.user)
         if len(user_to_find) == 0:
