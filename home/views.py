@@ -29,6 +29,7 @@ class SosView(View):
         sos_message = SosMessage()
         sos_message.number_of_people = request.POST['number_of_people']
         sos_message.maps_location = request.POST['maps_location']
+        sos_message.extra_message = request.POST['message']
         sos_message.sosuser = SosUser.objects.get(user=request.user)
         if request.POST['medical_assistance'] == 'Yes':
             sos_message.medical_assistance = True

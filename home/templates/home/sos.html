@@ -21,6 +21,9 @@
                     <div class="sos-main">
                         <h2>&#x26D1 Rescue {{ message.sos_message.number_of_people }} people</h2>
                         <a target="_blank" href="{{ message.sos_message.maps_location }}"><i class="fa fa-map-marker" style="color:purple"></i> Map Location</a>
+                        {% if message.sos_message.medical_assistance %}
+                            <p>Medical Assistance required</p>
+                        {% endif %}
                         <p>{{ message.sos_message.extra_message }}</p>
                         <form action="{% url 'rescued' %}" method="POST">
                             {% csrf_token %}
