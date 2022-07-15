@@ -5,8 +5,10 @@
 _pycache_
 db.sqlite3
 media
-.missing_people_images/*
-
+*.jpeg
+*.png
+*.jpg
+*.JPG
 
 # Backup files # 
 *.bak 
