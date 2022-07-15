@@ -17,7 +17,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .sos-main{
     /* border: 0.2rem solid black; */
