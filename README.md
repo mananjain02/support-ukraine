@@ -6,7 +6,8 @@ In the war between Russia and Ukraine, 28000+ civilians were killed, 18000+ were
 ***
 
 1. Initializing project
-    * run 'python manage.py makemigrations'
+    * run 'pip install -r requirements.txt'
+    * then run 'python manage.py makemigrations'
     * then run 'python manage.py migrate'
     * after the migrations are completed create a superuser with 'python manage.py cratesuperuser'
     * Now you can use 'python manage.py runserver' to see the project up and working.
