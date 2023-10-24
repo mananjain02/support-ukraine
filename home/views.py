@@ -12,7 +12,7 @@ class SosView(View):
             return render(request, 'index.html')
         user_to_find = SosUser.objects.filter(user=request.user)
         if len(user_to_find) == 0:
-            return render(request, 'home/profile.html', {
+            return render(request, 'home/profile.html',{
                 'error_message': 'complete your profile to use SOS Ukraine'
             })
 
